@@ -2,7 +2,7 @@
 
 ## 游戏下载
 
-[Android APK 下载链接](https://capacity-files.lcfile.com/P9OWU28sr8YrpY2TI97ITlnd510jcbAA/launcher-debug.apk)
+[Android APK 下载链接](https://capacity-files.lcfile.com/cU333sNE36KrHvaPVHMGYVjpBmYCkgHG/launcher-debug.apk)
 
 ## 介绍
 当前项目是 TDS Unity 游戏演示 Demo，支持 Android 和 iOS 两个平台。
