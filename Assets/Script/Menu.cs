@@ -7,12 +7,40 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
     {
         SetName();
         SetAge();
-
         //设置内嵌动态
         SetEmbeddedMoments();
         //注册成就
         InitTapAchievement();
+    }
+    //开始游戏
+    public void PlayGame()
+    {
+        //上报游戏时长
+        AntiAddictionUIKit.EnterGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
+    
+    //退出登录
+    public async void Logout()
+    {
+        var currentUser = await TDSUser.GetCurrent();
+        if (null == currentUser)
+        {
+            Debug.Log("未登录");
+        }
+        else
+        {
+            await TDSUser.Logout();
+            //退出登录时，退出防沉迷
+            AntiAddictionUIKit.Exit();
+            //退出登录后返回登录页面：
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public async void SetName()
@@ -104,6 +132,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
                       Debug.Log("场景化入口回调");
                   }
               });
+
+        //定时调用获取消息通知的接口，有新信息时可以在 TapTap 动态入口显示小红点，提醒玩家查看新动态。
         TapMoment.FetchNotification();
 
     }
@@ -212,34 +242,7 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         }
     }
 
-    public void PlayGame()
-    {
-        //上报游戏时长
-        AntiAddictionUIKit.EnterGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    public async void Logout()
-    {
-        var currentUser = await TDSUser.GetCurrent();
-        if (null == currentUser)
-        {
-            Debug.Log("未登录");
-        }
-        else
-        {
-            await TDSUser.Logout();
-            //退出登录时，退出防沉迷
-            AntiAddictionUIKit.Exit();
-            //退出登录后返回登录页面：
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
-    }
 
     //打开公告
     public void openBillboard()
@@ -252,12 +255,11 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
     public void openForum()
     {
         Debug.Log("打开动态");
-        // TapMoment.Open(Orientation.ORIENTATION_LANDSCAPE);
+         TapMoment.Open(Orientation.ORIENTATION_LANDSCAPE);
 
         //记录已经打开过内嵌动态，用于实现「已点击全部 TDS SDK 功能」成就
-        SetTDSAchievements();
         PlayerPrefs.SetString("openForum", "opened");
-
+        SetTDSAchievements();
 
     }
 
@@ -268,8 +270,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         TapAchievement.ShowAchievementPage();
 
         //记录已经打开过内嵌动态，用于实现「已点击全部 TDS SDK 功能」成就
-        SetTDSAchievements();
         PlayerPrefs.SetString("openAchievement", "opened");
+        SetTDSAchievements();
 
     }
 
@@ -280,8 +282,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         SceneManager.LoadScene("Leaderboard");
 
         //记录已经打开过内嵌动态，用于实现「已点击全部 TDS SDK 功能」成就
-        SetTDSAchievements();
         PlayerPrefs.SetString("openLeaderboard", "opened");
+        SetTDSAchievements();
 
     }
 
