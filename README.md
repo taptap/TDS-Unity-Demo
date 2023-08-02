@@ -32,6 +32,9 @@
 * 公告页面示例
 ![5501688100071_ pic](https://github.com/taptap/TDS-Unity-Demo/assets/11917002/9c7b3624-dad0-4462-a692-fc8ebdd87924)
 
+* 内嵌动态示例
+![WechatIMG583](https://github.com/taptap/TDS-Unity-Demo/assets/11917002/39b206ca-a4d8-4e5b-877e-c3a9397cb0fe)
+
 * 游戏页面示例
 ![WechatIMG554](https://github.com/taptap/TDS-Unity-Demo/assets/11917002/0075f583-2a91-4bd7-8cb0-4f0f18ec9c54)
 
