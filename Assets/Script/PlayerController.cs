@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TapTap.Billboard;
+using TapTap.Connect;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,10 +41,11 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 
 
-        //展示跑马灯公告，在开发者中心设置只循环播放一次，
+        //展示跑马灯公告，在开发者中心设置只循环播放一次
         TapBillboard.StartFetchMarqueeData();
 
-
+        //隐藏悬浮窗
+        TapConnect.SetEntryVisible(false);
     }
 
     // Update is called once per frame，

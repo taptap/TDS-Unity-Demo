@@ -1,11 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using LeanCloud.Storage;
 using TapTap.UI.AillieoTech;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ListView_score : MonoBehaviour
@@ -67,14 +63,14 @@ public class ListView_score : MonoBehaviour
     private async void InitData()
     {
         var leaderboard = LCLeaderboard.CreateWithoutData("CherryNum");
-        //注意，排行榜显示昵称，就用 nickname，排行榜显示用户名就用 username。
+        //注意，排行榜显示昵称就用 nickname，排行榜显示用户名就用 username。
         var rankings = await leaderboard.GetResults(limit: 200, selectKeys: new List<string> { "username", "nickname" });
         foreach (var statistic in rankings)
         {
             //Debug.Log("排行榜的名称是：" + statistic.StatisticName);
             //Debug.Log("排行榜的分数是：" + statistic.Value);
             //Debug.Log("排名是：" + statistic.Rank);
-            //Debug.Log("用户 ID 是：" + statistic.User.Username);
+            //Debug.Log("用户 ID 是：" + statistic.User.ObjectId);
             //Debug.Log("用户昵称：" + statistic.User["nickname"]);
 
             RankItemData data = new RankItemData();

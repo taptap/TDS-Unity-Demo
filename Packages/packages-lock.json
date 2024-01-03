@@ -1,84 +1,103 @@
 {
   "dependencies": {
     "com.leancloud.realtime": {
-      "version": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-1.0.2",
+      "version": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-2.3.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-1.0.2"
+        "com.leancloud.storage": "2.3.0"
       },
-      "hash": "73c70db9d89e6115776b05badb8239b655a5d212"
+      "hash": "eb739f35deb7985a72d03ca24cc6bccca8077a06"
     },
     "com.leancloud.storage": {
-      "version": "https://github.com/leancloud/csharp-sdk-upm.git#storage-1.0.2",
+      "version": "https://github.com/leancloud/csharp-sdk-upm.git#storage-2.3.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "beef2954fb0dbe2471952c34a32a5885a427ce9a"
+      "hash": "64fe9b06e27ac85b4087d0c4b41f97c77778b520"
     },
     "com.tapsdk.antiaddiction": {
-      "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.18.5",
+      "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "680db377aba88985d4cbf0e5d6db0bf2857d53dd"
+      "dependencies": {
+        "com.taptap.tds.common": "3.27.0"
+      },
+      "hash": "dd7e40844d632267a1ff11ac9894934e3ca3e4d1"
     },
     "com.taptap.tds.achievement": {
-      "version": "https://github.com/TapTap/TapAchievement-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapAchievement-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.18.5"
+        "com.taptap.tds.bootstrap": "3.27.0"
       },
-      "hash": "6b80dc60d04aeafeac7ebda2559515eab34e73e6"
+      "hash": "00c05c33f7d67c190c1d6db6610ecc69fdcaa39b"
     },
     "com.taptap.tds.billboard": {
-      "version": "https://github.com/TapTap/TapBillboard-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapBillboard-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.18.5"
+        "com.taptap.tds.common": "3.27.0"
       },
-      "hash": "b10237d6f760143c512d9298e86ccbd152fc3077"
+      "hash": "58782f9818a48285ea26de69c2bb203508cc71ae"
     },
     "com.taptap.tds.bootstrap": {
-      "version": "https://github.com/TapTap/TapBootstrap-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapBootstrap-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.18.5",
-        "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.18.5",
-        "com.leancloud.realtime": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-0.10.14",
-        "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-0.10.14"
+        "com.taptap.tds.login": "3.27.0",
+        "com.leancloud.realtime": "2.3.0"
       },
-      "hash": "6252c80a51b6049df16909b028ce21f2caee4b37"
+      "hash": "806d8eebab10fae3501cbfa294797ca604062495"
     },
     "com.taptap.tds.common": {
-      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.modules.ui": "1.0.0"
+        "com.leancloud.storage": "2.3.0"
       },
-      "hash": "0897069c01a182fd68606ab74a2b7121fbb9dfb9"
+      "hash": "3c421d18cf328f669e154c81c76d2c6f42437c8a"
+    },
+    "com.taptap.tds.connect": {
+      "version": "https://github.com/TapTap/TapConnect-Unity.git#3.27.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.taptap.tds.login": "3.27.0",
+        "com.taptap.tds.moment": "3.27.0"
+      },
+      "hash": "72cebfd2cca4fabe8822ddf7198a8246083efc64"
     },
     "com.taptap.tds.login": {
-      "version": "https://github.com/TapTap/TapLogin-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapLogin-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.18.5"
+        "com.taptap.tds.common": "3.27.0"
       },
-      "hash": "9ce24b1cdc3ba3fbd2060d59928732fd3d2a5992"
+      "hash": "4029f5a8df996c30da35c60bebd14e34d684310e"
     },
     "com.taptap.tds.moment": {
-      "version": "https://github.com/TapTap/TapMoment-Unity.git#3.18.5",
+      "version": "https://github.com/TapTap/TapMoment-Unity.git#3.27.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.18.5"
+        "com.taptap.tds.common": "3.27.0"
       },
-      "hash": "27109c40ead94d7411db558c1959d7a810c749a1"
+      "hash": "f627003c07af8e023bbda582be438eb502336491"
+    },
+    "com.taptap.tds.payment": {
+      "version": "https://github.com/TapTap/TapPayment-Unity.git#3.27.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.taptap.tds.common": "3.27.0"
+      },
+      "hash": "4e557ea438ecb68639fa8e7690fbf9c4d1c95c2b"
     },
     "com.unity.2d.animation": {
       "version": "5.0.7",

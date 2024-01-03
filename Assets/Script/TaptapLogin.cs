@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -9,6 +8,7 @@ using UnityEngine.SceneManagement;
 using TapTap.AntiAddiction;
 using TapTap.AntiAddiction.Model;
 using TapTap.Billboard;
+using TapTap.Connect;
 
 public class TaptapLogin : MonoBehaviour
 {
@@ -16,15 +16,21 @@ public class TaptapLogin : MonoBehaviour
     void Start()
     {
         //初始化公告
+        //设置地区、渠道、版本号三个维度
         var dimensionSet = new HashSet<KeyValuePair<string, string>>();
         KeyValuePair<string, string> platformPair = new KeyValuePair<string, string>("platform", "TapTap");
         KeyValuePair<string, string> locationPair = new KeyValuePair<string, string>("location", "CN");
+        KeyValuePair<string, string> versionPair = new KeyValuePair<string, string>("version", "v1");
+
         dimensionSet.Add(platformPair);
         dimensionSet.Add(locationPair);
-        var templateType = "navigate"; // 可选
+        dimensionSet.Add(versionPair);
+
+        //公告模版类型，目前仅支持导航模版。可填写：导航模版-navigate、图片模版-image。
+        var templateType = "navigate"; 
         var billboardServerUrl = "https://tdsgonggao.goodluckin.top";
 
-        //初始化 SDK
+
         var config = new TapConfig.Builder()
             .ClientID("mlbfoduqiglbdugddp") // 必须，开发者中心对应 Client ID
             .ClientToken("3wROiubU8Dkv5c3h5K6bsawFYMjoSqBxXN0A55Hm") // 必须，开发者中心对应 Client Token
@@ -38,8 +44,11 @@ public class TaptapLogin : MonoBehaviour
         //初始化防沉迷
         AntiAddictionInit();
 
+        //隐藏悬浮窗
+        TapConnect.SetEntryVisible(false);
+
     }
-   
+
     public void AntiAddictionInit()
     {
         AntiAddictionConfig config = new AntiAddictionConfig()

@@ -1,17 +1,27 @@
-using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.SceneManagement;using TapTap.Bootstrap;using TapTap.Common;using UnityEngine.UI;using UnityEngine.Networking;using TapTap.AntiAddiction;using TapTap.AntiAddiction.Model;using TapTap.Billboard;using TapTap.Moment;using TapTap.Achievement;public class Menu : MonoBehaviour, IAchievementCallback{
+using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.SceneManagement;using TapTap.Bootstrap;using TapTap.Common;using UnityEngine.UI;using UnityEngine.Networking;using TapTap.AntiAddiction;using TapTap.AntiAddiction.Model;using TapTap.Billboard;using TapTap.Moment;using TapTap.Achievement;using TapTap.Connect;
+using TapTap.Payment;
+
+public class Menu : MonoBehaviour, IAchievementCallback{
     public Text nickname;
     public Text age;
     public Image avatar;
     //获取玩家年龄段
     public void Start()
+
     {
         SetName();
         SetAge();
+
         //设置内嵌动态
         SetEmbeddedMoments();
+
         //注册成就
         InitTapAchievement();
+
+        //显示悬浮窗
+        TapConnect.SetEntryVisible(true);
     }
+
     //开始游戏
     public void PlayGame()
     {
@@ -20,7 +30,6 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    
     //退出登录
     public async void Logout()
     {
@@ -32,8 +41,10 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         else
         {
             await TDSUser.Logout();
+
             //退出登录时，退出防沉迷
             AntiAddictionUIKit.Exit();
+
             //退出登录后返回登录页面：
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
@@ -145,6 +156,7 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         TapAchievement.RegisterCallback(this);
         //初始化数据
         TapAchievement.InitData();
+
         // 获取本地数据
         TapAchievement.GetLocalAllAchievementList((list, code) =>
         {
@@ -269,7 +281,9 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         Debug.Log("打开成就");
         TapAchievement.ShowAchievementPage();
 
-        //记录已经打开过内嵌动态，用于实现「已点击全部 TDS SDK 功能」成就
+
+
+        //记录已经打开过成就，用于实现「已点击全部 TDS SDK 功能」成就
         PlayerPrefs.SetString("openAchievement", "opened");
         SetTDSAchievements();
 
@@ -281,7 +295,7 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         Debug.Log("打开排行榜");
         SceneManager.LoadScene("Leaderboard");
 
-        //记录已经打开过内嵌动态，用于实现「已点击全部 TDS SDK 功能」成就
+        //记录已经打开过排行榜，用于实现「已点击全部 TDS SDK 功能」成就
         PlayerPrefs.SetString("openLeaderboard", "opened");
         SetTDSAchievements();
 
@@ -289,6 +303,7 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
 
     public void OpenBillboard()
     {
+        //在菜单页面，打开导航公告
         TapBillboard.OpenPanel((any, error) =>
         {
             if (error != null)
@@ -310,8 +325,8 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
         TapBillboard.RegisterCustomLinkListener(url =>
         {
             // 这里返回的 url 地址和游戏在公告系统内配置的地址是一致的
-
         });
+
         //刷新小红点
         TapBillboard.QueryBadgeDetails((badgeDetails, error) =>
         {
@@ -359,4 +374,48 @@ using System.Collections;using System.Collections.Generic;using UnityEngine;u
             avatar.SetNativeSize();
             Resources.UnloadUnusedAssets();
         }
-    }}
+    }
+    public void TestPayment() {        TapPayment.QueryProduct("Apple", (skuDetail, error) =>
+        {
+            if (error != null)
+
+            {
+                Debug.Log("查询商品成功");
+
+                TapPayment.LaunchBillingFlow(skuDetail, "huli", "serverid", "{\"test\":\"test\"}", (responseCode, error) =>
+                {
+                    if (error != null)
+                    {
+                        // native bridge exception
+                    }
+                    else
+                    {
+                        if (responseCode == 0)
+                        {
+                            Debug.Log("购买完成");
+
+                            // complete
+                        }
+                        else if (responseCode == 1)
+                        {
+                            // error
+                        }
+                        else if (responseCode == 2)
+                        {
+                            // user cancel
+                        }
+                    }
+                });
+            }
+            else
+            {
+                if (skuDetail == null)
+                {
+                    // not found any product with given skuId
+                }
+                else
+                {
+                    // do something
+                }
+            }
+        });    }}
