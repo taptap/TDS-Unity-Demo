@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TapTap.Bootstrap;
 using TapTap.AntiAddiction;
-using TapTap.Billboard;
 using LeanCloud.Storage;
 using TapTap.Achievement;
 
@@ -16,9 +15,6 @@ public class Pause : MonoBehaviour
     {
         //停止上报游戏时长
         AntiAddictionUIKit.LeaveGame();
-
-        //暂停游戏时，停止跑马灯公告
-        TapBillboard.StopFetchMarqueeData(true);
 
         pauseMenu.SetActive(true);
         //暂停游戏

@@ -34,15 +34,6 @@
       },
       "hash": "00c05c33f7d67c190c1d6db6610ecc69fdcaa39b"
     },
-    "com.taptap.tds.billboard": {
-      "version": "https://github.com/TapTap/TapBillboard-Unity.git#3.27.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.27.0"
-      },
-      "hash": "58782f9818a48285ea26de69c2bb203508cc71ae"
-    },
     "com.taptap.tds.bootstrap": {
       "version": "https://github.com/TapTap/TapBootstrap-Unity.git#3.27.0",
       "depth": 0,

@@ -5,7 +5,6 @@
         "com.leancloud.storage": "https://github.com/leancloud/csharp-sdk-upm.git#storage-2.3.0",
         "com.tapsdk.antiaddiction": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.27.0",
         "com.taptap.tds.achievement": "https://github.com/TapTap/TapAchievement-Unity.git#3.27.0",
-        "com.taptap.tds.billboard": "https://github.com/TapTap/TapBillboard-Unity.git#3.27.0",
         "com.taptap.tds.bootstrap": "https://github.com/TapTap/TapBootstrap-Unity.git#3.27.0",
         "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.27.0",
         "com.taptap.tds.moment": "https://github.com/TapTap/TapMoment-Unity.git#3.27.0",

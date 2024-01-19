@@ -7,7 +7,6 @@ using TapTap.Common;
 using UnityEngine.SceneManagement;
 using TapTap.AntiAddiction;
 using TapTap.AntiAddiction.Model;
-using TapTap.Billboard;
 using TapTap.Connect;
 
 public class TaptapLogin : MonoBehaviour
@@ -15,28 +14,12 @@ public class TaptapLogin : MonoBehaviour
 
     void Start()
     {
-        //初始化公告
-        //设置地区、渠道、版本号三个维度
-        var dimensionSet = new HashSet<KeyValuePair<string, string>>();
-        KeyValuePair<string, string> platformPair = new KeyValuePair<string, string>("platform", "TapTap");
-        KeyValuePair<string, string> locationPair = new KeyValuePair<string, string>("location", "CN");
-        KeyValuePair<string, string> versionPair = new KeyValuePair<string, string>("version", "v1");
-
-        dimensionSet.Add(platformPair);
-        dimensionSet.Add(locationPair);
-        dimensionSet.Add(versionPair);
-
-        //公告模版类型，目前仅支持导航模版。可填写：导航模版-navigate、图片模版-image。
-        var templateType = "navigate"; 
-        var billboardServerUrl = "https://tdsgonggao.goodluckin.top";
-
 
         var config = new TapConfig.Builder()
             .ClientID("mlbfoduqiglbdugddp") // 必须，开发者中心对应 Client ID
             .ClientToken("3wROiubU8Dkv5c3h5K6bsawFYMjoSqBxXN0A55Hm") // 必须，开发者中心对应 Client Token
             .ServerURL("https://mlbfoduq.cloud.tds1.tapapis.cn") // 必须，开发者中心 > 你的游戏 > 游戏服务 > 基本信息 > 域名配置 > API
             .RegionType(RegionType.CN) // 非必须，CN 表示中国大陆，IO 表示其他国家或地区
-            .TapBillboardConfig(dimensionSet, templateType, billboardServerUrl)
             .ConfigBuilder();
         TapBootstrap.Init(config);
 
@@ -168,55 +151,11 @@ public class TaptapLogin : MonoBehaviour
     {
         Application.Quit();
     }
-    public void OpenBillboard()
+    public void contactUs()
     {
-        TapBillboard.OpenPanel((any, error) =>
-        {
-            if (error != null)
-            {
-                // 打开公告失败，可以根据 error.code 和 error.errorDescription 来判断错误原因
-                Debug.Log($"打开开屏公告失败: {error.code}, {error.errorDescription}");
-            }
-            else
-            {
-                Debug.Log("打开公告成功");
-            }
-        }, () =>
-        {
-            Debug.Log("公告已关闭");
-        });
-
-
-        //监听公告中的跳转
-        TapBillboard.RegisterCustomLinkListener(url =>
-        {
-            // 这里返回的 url 地址和游戏在公告系统内配置的地址是一致的
-
-        });
-        //刷新小红点
-        TapBillboard.QueryBadgeDetails((badgeDetails, error) =>
-        {
-            if (error != null)
-            {
-                // 获取小红点信息失败，可以根据 error.code 和 error.errorDescription 来判断错误原因
-                Debug.Log($"打开开屏公告失败: {error.code}, {error.errorDescription}");
-            }
-            else
-            {
-                // 获取小红点信息成功
-                if (badgeDetails.showRedDot == 1)
-                {
-                    // 有新的公告信息
-                    Debug.Log("有新的公告信息");
-                }
-                else
-                {
-                    // 没有新的公告信息
-                    Debug.Log("刷新小红点，没有新的公告信息");
-                }
-            }
-        });
+    
 
     }
+
 
 }

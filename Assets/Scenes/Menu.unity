@@ -1972,7 +1972,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 338419640}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: openBillboard
+        m_MethodName: OpenTapSupport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2638,7 +2638,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u516C\u544A"
+  m_Text: "\u5BA2\u670D"
 --- !u!222 &2013959000
 CanvasRenderer:
   m_ObjectHideFlags: 0

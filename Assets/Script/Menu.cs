@@ -1,4 +1,4 @@
-using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.SceneManagement;using TapTap.Bootstrap;using TapTap.Common;using UnityEngine.UI;using UnityEngine.Networking;using TapTap.AntiAddiction;using TapTap.AntiAddiction.Model;using TapTap.Billboard;using TapTap.Moment;using TapTap.Achievement;using TapTap.Connect;
+using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.SceneManagement;using TapTap.Bootstrap;using TapTap.Common;using UnityEngine.UI;using UnityEngine.Networking;using TapTap.AntiAddiction;using TapTap.AntiAddiction.Model;using TapTap.Moment;using TapTap.Achievement;using TapTap.Connect;
 using TapTap.Payment;
 
 public class Menu : MonoBehaviour, IAchievementCallback{
@@ -254,15 +254,6 @@ public class Menu : MonoBehaviour, IAchievementCallback{
         }
     }
 
-
-
-    //打开公告
-    public void openBillboard()
-    {
-        Debug.Log("打开公告");
-        OpenBillboard();
-    }
-
     //打开内嵌动态
     public void openForum()
     {
@@ -280,7 +271,6 @@ public class Menu : MonoBehaviour, IAchievementCallback{
     {
         Debug.Log("打开成就");
         TapAchievement.ShowAchievementPage();
-
 
 
         //记录已经打开过成就，用于实现「已点击全部 TDS SDK 功能」成就
@@ -301,55 +291,10 @@ public class Menu : MonoBehaviour, IAchievementCallback{
 
     }
 
-    public void OpenBillboard()
+    //打开客服
+    public void OpenTapSupport()
     {
-        //在菜单页面，打开导航公告
-        TapBillboard.OpenPanel((any, error) =>
-        {
-            if (error != null)
-            {
-                // 打开公告失败，可以根据 error.code 和 error.errorDescription 来判断错误原因
-                Debug.Log($"打开开屏公告失败: {error.code}, {error.errorDescription}");
-            }
-            else
-            {
-                Debug.Log("打开公告成功");
-            }
-        }, () =>
-        {
-            Debug.Log("公告已关闭");
-        });
-
-
-        //监听公告中的跳转
-        TapBillboard.RegisterCustomLinkListener(url =>
-        {
-            // 这里返回的 url 地址和游戏在公告系统内配置的地址是一致的
-        });
-
-        //刷新小红点
-        TapBillboard.QueryBadgeDetails((badgeDetails, error) =>
-        {
-            if (error != null)
-            {
-                // 获取小红点信息失败，可以根据 error.code 和 error.errorDescription 来判断错误原因
-                Debug.Log($"打开开屏公告失败: {error.code}, {error.errorDescription}");
-            }
-            else
-            {
-                // 获取小红点信息成功
-                if (badgeDetails.showRedDot == 1)
-                {
-                    // 有新的公告信息
-                    Debug.Log("有新的公告信息");
-                }
-                else
-                {
-                    // 没有新的公告信息
-                    Debug.Log("刷新小红点，没有新的公告信息");
-                }
-            }
-        });
+        Debug.Log("打开客服");
     }
     //加载头像
     IEnumerator GetTexFromUnityWebRequest(string imageUrl)
