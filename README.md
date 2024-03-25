@@ -2,7 +2,7 @@
 
 ## 游戏下载
 
-[Android APK 下载链接](https://capacity-files.lcfile.com/LjhOz3GXQPEIDHsGIS9zllf5yFlUd4i0/justrun.apk)
+[可以使用 TapTap 客户端下载游戏试玩](https://www.taptap.cn/app/357381)
 
 ## 介绍
 当前项目是 TDS Unity 游戏演示 Demo，支持 Android 和 iOS 两个平台。
