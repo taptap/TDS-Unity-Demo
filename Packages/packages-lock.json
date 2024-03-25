@@ -16,6 +16,15 @@
       "dependencies": {},
       "hash": "64fe9b06e27ac85b4087d0c4b41f97c77778b520"
     },
+    "com.tapsdk.androiddependencyresolver": {
+      "version": "1.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.leancloud.storage": "2.3.0"
+      },
+      "url": "https://nexus.tapsvc.com/repository/npm-registry"
+    },
     "com.tapsdk.antiaddiction": {
       "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.28.2",
       "depth": 0,
@@ -89,6 +98,16 @@
         "com.taptap.tds.common": "3.28.2"
       },
       "hash": "71a1d5a9c23ff7ee04c03497c7e079a7a700d0ce"
+    },
+    "com.taptap.tds.update": {
+      "version": "https://github.com/TapTap/TapUpdate-Unity.git#3.28.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.taptap.tds.common": "3.28.2",
+        "com.tapsdk.androiddependencyresolver": "1.2.0"
+      },
+      "hash": "0e3797a4f3b0b7a6712335a55df10acdf13ef9e3"
     },
     "com.unity.2d.animation": {
       "version": "5.0.7",

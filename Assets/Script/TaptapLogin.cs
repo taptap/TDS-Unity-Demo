@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using TapTap.AntiAddiction;
 using TapTap.AntiAddiction.Model;
 using TapTap.Connect;
+using TapTap.Update;
 
 public class TaptapLogin : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class TaptapLogin : MonoBehaviour
             .RegionType(RegionType.CN) // 非必须，CN 表示中国大陆，IO 表示其他国家或地区
             .ConfigBuilder();
         TapBootstrap.Init(config);
-
 
         //初始化防沉迷
         AntiAddictionInit();
@@ -151,10 +151,13 @@ public class TaptapLogin : MonoBehaviour
     {
         Application.Quit();
     }
-    public void contactUs()
-    {
-    
 
+    //检查当前版本，跳到 TapTap 客户端更新版本
+    public void updateVersion()
+    {
+        TapTap.Update.TapUpdate.UpdateGame(() => {
+            // 取消更新的事件
+        });
     }
 
 

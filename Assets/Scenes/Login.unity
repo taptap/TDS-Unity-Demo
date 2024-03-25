@@ -417,7 +417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 338419640}
         m_TargetAssemblyTypeName: TaptapLogin, Assembly-CSharp
-        m_MethodName: contactUs
+        m_MethodName: updateVersion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1119,7 +1119,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8054\u7CFB\u6211\u4EEC"
+  m_Text: "\u5524\u8D77\u66F4\u65B0"
 --- !u!222 &1737422167
 CanvasRenderer:
   m_ObjectHideFlags: 0
