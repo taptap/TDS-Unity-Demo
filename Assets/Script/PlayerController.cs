@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TapTap.Connect;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,11 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-
-
-        //隐藏悬浮窗
-        TapConnect.SetEntryVisible(false);
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame，

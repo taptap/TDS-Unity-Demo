@@ -1,161 +1,78 @@
 {
   "dependencies": {
-    "com.leancloud.realtime": {
-      "version": "https://github.com/leancloud/csharp-sdk-upm.git#realtime-2.3.0",
+    "com.tapsdk.antiaddiction": {
+      "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.29.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.leancloud.storage": "2.3.0"
+        "com.taptap.tds.common": "3.29.1"
       },
-      "hash": "eb739f35deb7985a72d03ca24cc6bccca8077a06"
+      "hash": "0b221226252a6728f41e46950bc6d01ba37c17a3"
     },
-    "com.leancloud.storage": {
-      "version": "https://github.com/leancloud/csharp-sdk-upm.git#storage-2.3.0",
+    "com.taptap.tds.common": {
+      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.29.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "64fe9b06e27ac85b4087d0c4b41f97c77778b520"
-    },
-    "com.tapsdk.androiddependencyresolver": {
-      "version": "1.2.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.leancloud.storage": "2.3.0"
-      },
-      "url": "https://nexus.tapsvc.com/repository/npm-registry"
-    },
-    "com.tapsdk.antiaddiction": {
-      "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.28.2"
-      },
-      "hash": "beb5fa46c0295d70e8f42b94c12c87e1cb8fdc2e"
-    },
-    "com.taptap.tds.achievement": {
-      "version": "https://github.com/TapTap/TapAchievement-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.bootstrap": "3.28.2"
-      },
-      "hash": "d63ba8f6f42202d4d36bc0f8743fbf9efef3ff19"
-    },
-    "com.taptap.tds.bootstrap": {
-      "version": "https://github.com/TapTap/TapBootstrap-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.login": "3.28.2",
-        "com.leancloud.realtime": "2.3.0"
-      },
-      "hash": "92286c369515dd935bba19a1f26d954c2adbb5ea"
-    },
-    "com.taptap.tds.common": {
-      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.leancloud.storage": "2.3.0"
-      },
-      "hash": "74f7198dcd4c8cca9d01f08a9a26160a0a5ee0b6"
-    },
-    "com.taptap.tds.connect": {
-      "version": "https://github.com/TapTap/TapConnect-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.login": "3.28.2",
-        "com.taptap.tds.moment": "3.28.2"
-      },
-      "hash": "a3b870d8a6575b7c88003bc657134ee396689e13"
+      "hash": "ee345b8706d35fa90d59d000b3fbb84fca1f1c39"
     },
     "com.taptap.tds.login": {
-      "version": "https://github.com/TapTap/TapLogin-Unity.git#3.28.2",
+      "version": "https://github.com/TapTap/TapLogin-Unity.git#3.29.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.common": "3.28.2"
+        "com.taptap.tds.common": "3.29.1"
       },
-      "hash": "fde3200ee68a4296890e3b7c8f0d823ab1f54b7b"
-    },
-    "com.taptap.tds.moment": {
-      "version": "https://github.com/TapTap/TapMoment-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.28.2"
-      },
-      "hash": "7a0cf97df694196a5d990ca922ab77155ba3268d"
-    },
-    "com.taptap.tds.payment": {
-      "version": "https://github.com/TapTap/TapPayment-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.28.2"
-      },
-      "hash": "71a1d5a9c23ff7ee04c03497c7e079a7a700d0ce"
-    },
-    "com.taptap.tds.update": {
-      "version": "https://github.com/TapTap/TapUpdate-Unity.git#3.28.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.28.2",
-        "com.tapsdk.androiddependencyresolver": "1.2.0"
-      },
-      "hash": "0e3797a4f3b0b7a6712335a55df10acdf13ef9e3"
+      "hash": "ce22276751cec558e08ce53881ff9af5bf373bb0"
     },
     "com.unity.2d.animation": {
-      "version": "5.0.7",
+      "version": "7.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.2d.common": "4.0.3",
-        "com.unity.mathematics": "1.1.0",
+        "com.unity.2d.common": "6.0.3",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.common": {
-      "version": "4.0.3",
+      "version": "6.0.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.sprite": "1.0.0",
-        "com.unity.modules.uielements": "1.0.0"
+        "com.unity.mathematics": "1.1.0",
+        "com.unity.modules.uielements": "1.0.0",
+        "com.unity.burst": "1.5.1"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.path": {
-      "version": "4.0.2",
+      "version": "5.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.pixel-perfect": {
-      "version": "4.0.1",
+      "version": "5.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.psdimporter": {
-      "version": "4.1.0",
+      "version": "6.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.2d.common": "4.0.3",
-        "com.unity.2d.animation": "5.0.6",
+        "com.unity.2d.animation": "7.0.6",
+        "com.unity.2d.common": "6.0.3",
         "com.unity.2d.sprite": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -164,16 +81,16 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "5.1.4",
+      "version": "7.0.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.2d.common": "4.0.3",
-        "com.unity.2d.path": "4.0.2",
+        "com.unity.2d.common": "6.0.3",
+        "com.unity.2d.path": "5.0.2",
         "com.unity.modules.physics2d": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.2d.tilemap": {
       "version": "1.0.0",
@@ -181,70 +98,90 @@
       "source": "builtin",
       "dependencies": {}
     },
+    "com.unity.burst": {
+      "version": "1.6.6",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.cn"
+    },
     "com.unity.cinemachine": {
-      "version": "2.6.17",
+      "version": "2.8.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.collab-proxy": {
-      "version": "1.7.1",
+      "version": "1.17.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0"
+        "com.unity.services.core": "1.0.1"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.ide.rider": {
-      "version": "2.0.7",
+      "version": "3.0.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.1"
+        "com.unity.ext.nunit": "1.0.6"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.18",
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.3",
+      "version": "1.2.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.mathematics": {
-      "version": "1.1.0",
+      "version": "1.2.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.nuget.newtonsoft-json": {
-      "version": "2.0.0",
-      "depth": 1,
+      "version": "3.0.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
+    },
+    "com.unity.services.core": {
+      "version": "1.4.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "url": "https://packages.unity.cn"
     },
     "com.unity.test-framework": {
-      "version": "1.1.27",
+      "version": "1.1.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -252,7 +189,7 @@
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.textmeshpro": {
       "version": "3.0.6",
@@ -261,10 +198,10 @@
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
+      "version": "1.6.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -273,7 +210,7 @@
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
-      "url": "https://packages.unity.com"
+      "url": "https://packages.unity.cn"
     },
     "com.unity.ugui": {
       "version": "1.0.0",
