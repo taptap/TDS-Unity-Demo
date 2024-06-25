@@ -57,13 +57,12 @@ public class LoginScene : MonoBehaviour
 
         // 根据本地是否存在用户信息显示不同 UI 
         SwitchLoginState(currentToken != null);
-        
+
         // 本地存在用户信息且未通过合规认证时进行合规认证检查
         if (currentToken != null && !GameSDKManager.Instance.HasCheckedAntiAddiction)
         {
             StartAntiAddiction();
         }
-
     }
 
     /// <summary>
@@ -188,7 +187,8 @@ public class LoginScene : MonoBehaviour
         }
     }
 
-    void OnDestroy(){
+    void OnDestroy()
+    {
         // 移除对应监听
         GameSDKManager.Instance.UnRegisterListener(HandleAntiAddictionError);
     }

@@ -10,6 +10,9 @@ using System.Collections.Generic;
 /// </summary>
 public sealed class GameSDKManager
 {
+    // 游戏在 TapTap 开发者中心对应的 Client ID
+    private readonly string clientId = "游戏的 Client ID";
+
     // 异常事件类型-适龄限制
     public const int EVENT_TYPE_AGE_RESTRICT = 1;
 
@@ -48,7 +51,6 @@ public sealed class GameSDKManager
             case 1000: // 防沉迷认证凭证无效时触发
             case 1001: // 当玩家触发时长限制时，点击了拦截窗口中「切换账号」按钮
             case 9002: // 实名认证过程中玩家关闭了实名窗口
-
                 TapLogin.Logout();
                 SceneManager.LoadScene("Login");
                 break;
@@ -69,7 +71,7 @@ public sealed class GameSDKManager
                 break;
 
             default:
-                UnityEngine.Debug.Log("可选事件回调");
+                UnityEngine.Debug.Log("其他可选回调");
                 break;
         }
 
@@ -83,13 +85,13 @@ public sealed class GameSDKManager
         if (!hasInit)
         {
             // 初始化 TapTap 登录
-            TapLogin.Init("6Rap5XF2ncLQB2oIiW");
+            TapLogin.Init(clientId);
             //初始化防沉迷
             AntiAddictionConfig config = new AntiAddictionConfig()
             {
-                gameId = "6Rap5XF2ncLQB2oIiW",      // TapTap 开发者中心对应 Client ID
+                gameId = clientId,      // TapTap 开发者中心对应 Client ID
                 showSwitchAccount = true,           // 是否显示切换账号按钮
-                useAgeRange = true                  // 是否使用年龄段信息
+                useAgeRange = false                  // 是否使用年龄段信息
             };
 
             // 初始化合规认证及设置回调
