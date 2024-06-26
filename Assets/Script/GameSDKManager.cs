@@ -23,7 +23,7 @@ public sealed class GameSDKManager
     private readonly bool hasInit = false;
 
     // 是否已通过合规认证检查
-    public bool HasCheckedAntiAddiction { get; private set; }
+    public bool hasCheckedAntiAddiction { get; private set; }
 
     // 合规认证部分限制事件监听，用于显示对应提示 UI
     private readonly List<Action<int>> restrictActionList;
@@ -44,7 +44,7 @@ public sealed class GameSDKManager
         switch (code)
         {
             case 500: // 玩家未受限制，可正常开始
-                Instance.HasCheckedAntiAddiction = true;
+                Instance.hasCheckedAntiAddiction = true;
                 UnityEngine.Debug.Log("开始游戏");
                 break;
 
@@ -106,7 +106,7 @@ public sealed class GameSDKManager
     /// <param name="userIdentifier">用户唯一标识</param>
     public void StartAntiAddiction(string userIdentifier)
     {
-        HasCheckedAntiAddiction = false;
+        hasCheckedAntiAddiction = false;
         AntiAddictionUIKit.StartupWithTapTap(userIdentifier);
     }
 

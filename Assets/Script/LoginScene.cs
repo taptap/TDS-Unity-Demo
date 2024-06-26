@@ -59,7 +59,7 @@ public class LoginScene : MonoBehaviour
         SwitchLoginState(currentToken != null);
 
         // 本地存在用户信息且未通过合规认证时进行合规认证检查
-        if (currentToken != null && !GameSDKManager.Instance.HasCheckedAntiAddiction)
+        if (currentToken != null && !GameSDKManager.Instance.hasCheckedAntiAddiction)
         {
             StartAntiAddiction();
         }
