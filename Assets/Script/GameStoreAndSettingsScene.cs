@@ -80,7 +80,6 @@ public class GameStoreAndSettingsScene : MonoBehaviour
         StoreMenu.SetActive(false);
 
         // 返回游戏
-        Time.timeScale = 1f;
         audioBgm.Play();
 
     }
@@ -160,7 +159,6 @@ public class GameStoreAndSettingsScene : MonoBehaviour
     {
         ChargeTip.SetActive(false);
 
-        Time.timeScale = 1f;
         audioBgm.Play();
     }
 
@@ -169,7 +167,6 @@ public class GameStoreAndSettingsScene : MonoBehaviour
     /// </summary>
     public void GoStore()
     {
-        Time.timeScale = 0f;
         audioBgm.Pause();
 
         StoreMenu.SetActive(true);

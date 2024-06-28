@@ -161,7 +161,23 @@ public class LoginScene : MonoBehaviour
     /// </summary>
     public async void StartAntiAddiction()
     {
-        var profile = await TapLogin.GetProfile();
+        // 获取当前已登录用户的 Profile 信息
+        Profile profile = null;
+        try
+        {
+            profile = await TapLogin.GetProfile();
+        }
+        catch (Exception exception)
+        {
+            Debug.Log($"获取 Profile 信息出现异常：{exception}");
+        }
+        if (profile == null)
+        {
+            // 无法获取 Profile 时，登出并显示登录按钮
+            TapLogin.Logout();
+            SwitchLoginState(false);
+            return;
+        }
 
         // 使用当前 Tap 用户的 unionid 作为用户标识进行合规认证检查
         string userIdentifier = profile.unionid;
