@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TapTap.UI.AillieoTech;
+using TapSDK.UI.AillieoTech;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

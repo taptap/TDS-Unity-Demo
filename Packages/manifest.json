@@ -1,8 +1,9 @@
 {
     "dependencies": {
-        "com.tapsdk.antiaddiction": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.29.2",
-        "com.taptap.tds.common": "https://github.com/TapTap/TapCommon-Unity.git#3.29.2",
-        "com.taptap.tds.login": "https://github.com/TapTap/TapLogin-Unity.git#3.29.2",
+        "com.taptap.sdk.core":"https://github.com/taptap/TapSDKCore-Unity.git#4.3.10",
+        "com.taptap.sdk.login":"https://github.com/taptap/TapSDKLogin-Unity.git#4.3.10",
+        "com.taptap.sdk.compliance":"https://github.com/taptap/TapSDKCompliance-Unity.git#4.3.10",
+        "com.google.external-dependency-manager": "1.2.179",
         "com.unity.2d.animation": "7.0.6",
         "com.unity.2d.pixel-perfect": "5.0.1",
         "com.unity.2d.psdimporter": "6.0.4",
@@ -53,5 +54,14 @@
         "com.unity.modules.vr": "1.0.0",
         "com.unity.modules.wind": "1.0.0",
         "com.unity.modules.xr": "1.0.0"
-    }
+    },
+    "scopedRegistries": [
+      {
+         "name": "package.openupm.com",
+         "url": "https://package.openupm.com",
+         "scopes": [
+            "com.google.external-dependency-manager"
+         ]
+      }
+  ]
 }

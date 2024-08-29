@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
-using TapTap.Login;
-using TapTap.AntiAddiction;
-using TapTap.AntiAddiction.Model;
+using TapSDK.Login;
+using TapSDK.Compliance;
+using TapSDK.Core;
 using System.Collections.Generic;
 
 /// <summary>
@@ -12,6 +12,9 @@ public sealed class GameSDKManager
 {
     // 游戏在 TapTap 开发者中心对应的 Client ID
     private readonly string clientId = "游戏的 Client ID";
+
+    // 游戏在 TapTap 开发者中心对应的 Client Token
+    private readonly string clientToken = "游戏的 Client Token";
 
     // 异常事件类型-适龄限制
     public const int EVENT_TYPE_AGE_RESTRICT = 1;
@@ -23,7 +26,7 @@ public sealed class GameSDKManager
     private readonly bool hasInit = false;
 
     // 是否已通过合规认证检查
-    public bool hasCheckedAntiAddiction { get; private set; }
+    public bool hasCheckedCompliance { get; private set; }
 
     // 合规认证部分限制事件监听，用于显示对应提示 UI
     private readonly List<Action<int>> restrictActionList;
@@ -38,20 +41,20 @@ public sealed class GameSDKManager
     }
 
     // 声明合规认证回调
-    private readonly Action<int, string> AntiAddictionCallback = (code, errorMsg) =>
+    private readonly Action<int, string> ComplianceCallback = (code, errorMsg) =>
     {
         // 根据回调返回的参数 code 添加不同情况的处理
         switch (code)
         {
             case 500: // 玩家未受限制，可正常开始
-                Instance.hasCheckedAntiAddiction = true;
+                Instance.hasCheckedCompliance = true;
                 UnityEngine.Debug.Log("开始游戏");
                 break;
 
             case 1000: // 防沉迷认证凭证无效时触发
             case 1001: // 当玩家触发时长限制时，点击了拦截窗口中「切换账号」按钮
             case 9002: // 实名认证过程中玩家关闭了实名窗口
-                TapLogin.Logout();
+                TapTapLogin.Instance.Logout();
                 SceneManager.LoadScene("Login");
                 break;
 
@@ -84,19 +87,24 @@ public sealed class GameSDKManager
     {
         if (!hasInit)
         {
-            // 初始化 TapTap 登录
-            TapLogin.Init(clientId);
-            //初始化防沉迷
-            AntiAddictionConfig config = new AntiAddictionConfig()
-            {
-                gameId = clientId,      // TapTap 开发者中心对应 Client ID
-                showSwitchAccount = true,           // 是否显示切换账号按钮
-                useAgeRange = false                  // 是否使用年龄段信息
-            };
 
-            // 初始化合规认证及设置回调
-            AntiAddictionUIKit.Init(config);
-            AntiAddictionUIKit.SetAntiAddictionCallback(AntiAddictionCallback);
+           TapTapSdkOptions coreOptions = new TapTapSdkOptions
+            {
+                clientId = clientId,
+                clientToken = clientToken
+            };
+            TapTapComplianceOption complianceOption = new TapTapComplianceOption
+            {
+                showSwitchAccount = false, // 是否显示切换账号按钮
+                useAgeRange = true // 是否使用年龄段信息
+            };
+            // 创建其他选项数组
+            TapTapSdkBaseOptions[] otherOptions = new TapTapSdkBaseOptions[]
+            {
+                complianceOption
+            };
+            TapTapSDK.Init(coreOptions, otherOptions);
+            TapTapCompliance.RegisterComplianceCallback(ComplianceCallback);
         }
     }
 
@@ -106,8 +114,8 @@ public sealed class GameSDKManager
     /// <param name="userIdentifier">用户唯一标识</param>
     public void StartAntiAddiction(string userIdentifier)
     {
-        hasCheckedAntiAddiction = false;
-        AntiAddictionUIKit.StartupWithTapTap(userIdentifier);
+        hasCheckedCompliance = false;
+        TapTapCompliance.Startup(userIdentifier);
     }
 
     /// <summary>

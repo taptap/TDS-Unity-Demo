@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TapTap.Login;
+using TapSDK.Login;
 using UnityEngine.UI;
-using TapTap.AntiAddiction;
+using TapSDK.Compliance;
 
 /// <summary>
 /// 游戏商店及设置场景
@@ -34,8 +34,8 @@ public class GameStoreAndSettingsScene : MonoBehaviour
     public async void Start()
     {
         Text username = SettingsMenu.transform.Find("username").GetComponent<Text>();
-        var profile = await TapLogin.GetProfile();
-        username.text = profile.name;
+        var account = await TapTapLogin.Instance.GetCurrentTapAccount();
+        username.text = account.name;
     }
 
     /// <summary>
@@ -106,7 +106,7 @@ public class GameStoreAndSettingsScene : MonoBehaviour
     /// <param name="amount"> 充值金额，单位：分 </param>
     private void Charge(int amount)
     {
-        AntiAddictionUIKit.CheckPayLimit(amount, (result) =>
+        TapTapCompliance.CheckPaymentLimit(amount, (result) =>
         {
             int status = result.status;
             // 当前充值不受限
@@ -179,7 +179,7 @@ public class GameStoreAndSettingsScene : MonoBehaviour
     /// <param name="amount"></param>
     private void SubmitPayResult(int amount)
     {
-        AntiAddictionUIKit.SubmitPayResult(amount, () =>
+        TapTapCompliance.SubmitPayment(amount, () =>
             {
                 // 上报成功
                 TryTimes = 0;

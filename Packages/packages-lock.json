@@ -1,29 +1,39 @@
 {
   "dependencies": {
-    "com.tapsdk.antiaddiction": {
-      "version": "https://github.com/taptap/TapAntiAddiction-Unity.git#3.29.2",
+    "com.google.external-dependency-manager": {
+      "version": "1.2.179",
       "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.taptap.tds.common": "3.29.2"
-      },
-      "hash": "d95d8fcfdc1745326efe81d536c14c9628f6cdcf"
-    },
-    "com.taptap.tds.common": {
-      "version": "https://github.com/TapTap/TapCommon-Unity.git#3.29.2",
-      "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {},
-      "hash": "ed393fffce3a350bff584cd164d8d470440d5f6e"
+      "url": "https://package.openupm.com"
     },
-    "com.taptap.tds.login": {
-      "version": "https://github.com/TapTap/TapLogin-Unity.git#3.29.2",
+    "com.taptap.sdk.compliance": {
+      "version": "https://github.com/taptap/TapSDKCompliance-Unity.git#4.3.10",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.taptap.tds.common": "3.29.2"
+        "com.taptap.sdk.core": "4.3.10",
+        "com.taptap.sdk.login": "4.3.10"
       },
-      "hash": "395eafc63211674f0bb7c0abbacc761ead7ee1ef"
+      "hash": "2944b0aa8c13ece02b1f96c742d395bde5e56b94"
+    },
+    "com.taptap.sdk.core": {
+      "version": "https://github.com/taptap/TapSDKCore-Unity.git#4.3.10",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.179"
+      },
+      "hash": "cce2fa8e7b2e498facd2eb9982d4b0d91336031d"
+    },
+    "com.taptap.sdk.login": {
+      "version": "https://github.com/taptap/TapSDKLogin-Unity.git#4.3.10",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.taptap.sdk.core": "4.3.10"
+      },
+      "hash": "be2a70c0e267881d02c8ed36e2c022fbcb4683ad"
     },
     "com.unity.2d.animation": {
       "version": "7.0.6",

@@ -1,9 +1,10 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
-using TapTap.AntiAddiction;
-using TapTap.Login;
+using TapSDK.Login;
 using UnityEngine.UI;
+using TapSDK.Compliance;
+using System.Collections.Generic;
 
 /// <summary>
 /// 登录场景
@@ -44,22 +45,22 @@ public class LoginScene : MonoBehaviour
         // 注册合规认证限制事件回调，显示对应提示弹窗
         GameSDKManager.Instance.RegisterListener(HandleAntiAddictionError);
 
-        AccessToken currentToken = null;
+        TapTapAccount account = null;
         try
         {
             // 检查本地是否已存在 TapToken
-            currentToken = await TapLogin.GetAccessToken();
+            account = await TapTapLogin.Instance.GetCurrentTapAccount();
         }
         catch (Exception e)
         {
-            Debug.Log("本地无有效 token");
+            Debug.Log("本地无有效 token ");
         }
 
         // 根据本地是否存在用户信息显示不同 UI 
-        SwitchLoginState(currentToken != null);
+        SwitchLoginState(account != null);
 
         // 本地存在用户信息且未通过合规认证时进行合规认证检查
-        if (currentToken != null && !GameSDKManager.Instance.hasCheckedAntiAddiction)
+        if (account != null && !GameSDKManager.Instance.hasCheckedCompliance)
         {
             StartAntiAddiction();
         }
@@ -72,8 +73,12 @@ public class LoginScene : MonoBehaviour
     {
         try
         {
+            List<string> scopes = new List<string>
+            {
+                TapTapLogin.TAP_LOGIN_SCOPE_PUBLIC_PROFILE
+            };
             // 发起 Tap 登录并获取用户信息
-            var accessToken = await TapLogin.Login();
+            var accessToken = await TapTapLogin.Instance.LoginWithScopes(scopes.ToArray());
 
             // 切换 UI 显示状态
             SwitchLoginState(true);
@@ -83,7 +88,7 @@ public class LoginScene : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log("用户登录取消或错误");
+            Debug.Log("用户登录取消或错误 :" + e.Message);
         }
     }
 
@@ -100,8 +105,8 @@ public class LoginScene : MonoBehaviour
             EnterGameButton.SetActive(true);
             LoginButton.SetActive(false);
 
-            var profile = await TapLogin.GetProfile();
-            tv_userTip.text = profile.name + " 欢迎回来 ！";
+            var account = await TapTapLogin.Instance.GetCurrentTapAccount();
+            tv_userTip.text = account.name + " 欢迎回来 ！";
         }
         else
         {
@@ -125,8 +130,8 @@ public class LoginScene : MonoBehaviour
     /// </summary>
     public void OnSwitchAccount()
     {
-        TapLogin.Logout();
-        AntiAddictionUIKit.Exit();
+        TapTapLogin.Instance.Logout();
+        TapTapCompliance.Exit();
         SwitchLoginState(false);
     }
 
@@ -162,10 +167,10 @@ public class LoginScene : MonoBehaviour
     public async void StartAntiAddiction()
     {
         // 获取当前已登录用户的 Profile 信息
-        Profile profile = null;
+        TapTapAccount profile = null;
         try
         {
-            profile = await TapLogin.GetProfile();
+            profile = await TapTapLogin.Instance.GetCurrentTapAccount();
         }
         catch (Exception exception)
         {
@@ -174,13 +179,13 @@ public class LoginScene : MonoBehaviour
         if (profile == null)
         {
             // 无法获取 Profile 时，登出并显示登录按钮
-            TapLogin.Logout();
+            TapTapLogin.Instance.Logout();
             SwitchLoginState(false);
             return;
         }
 
         // 使用当前 Tap 用户的 unionid 作为用户标识进行合规认证检查
-        string userIdentifier = profile.unionid;
+        string userIdentifier = profile.uniontId;
         GameSDKManager.Instance.StartAntiAddiction(userIdentifier);
     }
 
