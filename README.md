@@ -8,8 +8,14 @@
 当前项目是 TDS Unity 游戏演示 Demo，支持 PC 和移动平台，开发者测试时需替换项目中 `clientID` 为在 TapTap 开发者中心已申请的 `Client ID`，同时包名和签名也应和 Tap 登录中配置的信息保持一致。
 
 ## 已集成的 TDS 功能
-* TapTap 登录
+* TapTap 登录 
 * 合规认证
+
+## SDK 接入示例
+- [应用初始化及合规认证回调处理](Assets/Script/GameSDKManager.cs)
+- [登录及获取用户信息](Assets/Script/LoginScene.cs)
+- [合规认证支付限制判断](Assets/Script/GameStoreAndSettingsScene.cs)
+- [远程依赖集成](Packages/manifest.json)
 
 ## 游戏截图示例
 

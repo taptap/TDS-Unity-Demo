@@ -4,6 +4,7 @@
         "com.taptap.sdk.login":"https://github.com/taptap/TapSDKLogin-Unity.git#4.3.10",
         "com.taptap.sdk.compliance":"https://github.com/taptap/TapSDKCompliance-Unity.git#4.3.10",
         "com.google.external-dependency-manager": "1.2.179",
+        "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
         "com.unity.2d.animation": "7.0.6",
         "com.unity.2d.pixel-perfect": "5.0.1",
         "com.unity.2d.psdimporter": "6.0.4",
