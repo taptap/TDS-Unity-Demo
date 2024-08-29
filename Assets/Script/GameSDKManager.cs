@@ -112,7 +112,7 @@ public sealed class GameSDKManager
     /// 开始合规认证检查
     /// </summary>
     /// <param name="userIdentifier">用户唯一标识</param>
-    public void StartAntiAddiction(string userIdentifier)
+    public void StartCheckCompliance(string userIdentifier)
     {
         hasCheckedCompliance = false;
         TapTapCompliance.Startup(userIdentifier);

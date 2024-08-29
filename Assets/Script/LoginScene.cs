@@ -48,12 +48,12 @@ public class LoginScene : MonoBehaviour
         TapTapAccount account = null;
         try
         {
-            // 检查本地是否已存在 TapToken
+            // 检查本地是否已存在 account 信息
             account = await TapTapLogin.Instance.GetCurrentTapAccount();
         }
         catch (Exception e)
         {
-            Debug.Log("本地无有效 token ");
+            Debug.Log("本地无有效用户信息");
         }
 
         // 根据本地是否存在用户信息显示不同 UI 
@@ -62,7 +62,7 @@ public class LoginScene : MonoBehaviour
         // 本地存在用户信息且未通过合规认证时进行合规认证检查
         if (account != null && !GameSDKManager.Instance.hasCheckedCompliance)
         {
-            StartAntiAddiction();
+            StartCheckCompliance();
         }
     }
 
@@ -78,13 +78,13 @@ public class LoginScene : MonoBehaviour
                 TapTapLogin.TAP_LOGIN_SCOPE_PUBLIC_PROFILE
             };
             // 发起 Tap 登录并获取用户信息
-            var accessToken = await TapTapLogin.Instance.LoginWithScopes(scopes.ToArray());
+            var account = await TapTapLogin.Instance.LoginWithScopes(scopes.ToArray());
 
             // 切换 UI 显示状态
             SwitchLoginState(true);
 
             // 开始合规认证检查
-            StartAntiAddiction();
+            StartCheckCompliance();
         }
         catch (Exception e)
         {
@@ -158,25 +158,25 @@ public class LoginScene : MonoBehaviour
     /// </summary>
     public void OnRetryAntiaddiction()
     {
-        StartAntiAddiction();
+        StartCheckCompliance();
     }
 
     /// <summary>
     /// 开始合规认证检查
     /// </summary>
-    public async void StartAntiAddiction()
+    public async void StartCheckCompliance()
     {
-        // 获取当前已登录用户的 Profile 信息
-        TapTapAccount profile = null;
+        // 获取当前已登录用户的 account 信息
+        TapTapAccount account = null;
         try
         {
-            profile = await TapTapLogin.Instance.GetCurrentTapAccount();
+            account = await TapTapLogin.Instance.GetCurrentTapAccount();
         }
         catch (Exception exception)
         {
-            Debug.Log($"获取 Profile 信息出现异常：{exception}");
+            Debug.Log($"获取 account 信息出现异常：{exception}");
         }
-        if (profile == null)
+        if (account == null)
         {
             // 无法获取 Profile 时，登出并显示登录按钮
             TapTapLogin.Instance.Logout();
@@ -185,8 +185,8 @@ public class LoginScene : MonoBehaviour
         }
 
         // 使用当前 Tap 用户的 unionid 作为用户标识进行合规认证检查
-        string userIdentifier = profile.uniontId;
-        GameSDKManager.Instance.StartAntiAddiction(userIdentifier);
+        string userIdentifier = account.uniontId;
+        GameSDKManager.Instance.StartCheckCompliance(userIdentifier);
     }
 
     /// <summary>
