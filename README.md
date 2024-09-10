@@ -1,9 +1,5 @@
 # TDS-Unity-Demo
 
-## 游戏下载
-
-[可以使用 TapTap 客户端下载游戏试玩](https://www.taptap.cn/app/357381)
-
 ## 介绍
 当前项目是 TDS Unity 游戏演示 Demo，支持 PC 和移动平台，开发者测试时需替换项目中 `clientID` 为在 TapTap 开发者中心已申请的 `Client ID`，同时包名和签名也应和 Tap 登录中配置的信息保持一致。
 
