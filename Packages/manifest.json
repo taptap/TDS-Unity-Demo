@@ -1,15 +1,11 @@
 {
     "dependencies": {
-        "com.taptap.sdk.core":"https://github.com/taptap/TapSDKCore-Unity.git#4.3.10",
-        "com.taptap.sdk.login":"https://github.com/taptap/TapSDKLogin-Unity.git#4.3.10",
-        "com.taptap.sdk.compliance":"https://github.com/taptap/TapSDKCompliance-Unity.git#4.3.10",
+        "com.taptap.sdk.core": "https://github.com/taptap/TapSDKCore-Unity.git#4.5.1",
+        "com.taptap.sdk.login": "https://github.com/taptap/TapSDKLogin-Unity.git#4.5.1",
+        "com.taptap.sdk.compliance": "https://github.com/taptap/TapSDKCompliance-Unity.git#4.5.1",
         "com.google.external-dependency-manager": "1.2.179",
-        "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
-        "com.unity.2d.animation": "7.0.6",
-        "com.unity.2d.pixel-perfect": "5.0.1",
-        "com.unity.2d.psdimporter": "6.0.4",
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.2d.sprite": "1.0.0",
-        "com.unity.2d.spriteshape": "7.0.5",
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.ads": "3.7.5",
         "com.unity.analytics": "3.6.12",
@@ -18,7 +14,6 @@
         "com.unity.ide.rider": "3.0.15",
         "com.unity.ide.visualstudio": "2.0.22",
         "com.unity.ide.vscode": "1.2.5",
-        "com.unity.purchasing": "4.2.1",
         "com.unity.test-framework": "1.1.31",
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.timeline": "1.6.4",
@@ -57,12 +52,12 @@
         "com.unity.modules.xr": "1.0.0"
     },
     "scopedRegistries": [
-      {
-         "name": "package.openupm.com",
-         "url": "https://package.openupm.com",
-         "scopes": [
-            "com.google.external-dependency-manager"
-         ]
-      }
-  ]
+        {
+            "name": "package.openupm.com",
+            "url": "https://package.openupm.com",
+            "scopes": [
+                "com.google.external-dependency-manager"
+            ]
+        }
+    ]
 }

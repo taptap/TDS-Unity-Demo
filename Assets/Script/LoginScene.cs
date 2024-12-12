@@ -185,7 +185,7 @@ public class LoginScene : MonoBehaviour
         }
 
         // 使用当前 Tap 用户的 unionid 作为用户标识进行合规认证检查
-        string userIdentifier = account.uniontId;
+        string userIdentifier = account.unionId;
         GameSDKManager.Instance.StartCheckCompliance(userIdentifier);
     }
 
